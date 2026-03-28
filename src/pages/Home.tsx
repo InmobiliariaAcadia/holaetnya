@@ -157,11 +157,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 5) Community Section (Outsite + Locke Inspired) */}
-      <section className="py-24 bg-[#1a1a1a] text-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      {/* 5) Community Section (Outsite + Locke Inspired with Background Image) */}
+      <section className="relative py-32 text-white overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://picsum.photos/seed/merida-community-bg/1920/1080" 
+            alt="Community Background" 
+            className="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="relative">
-            <div className="aspect-square rounded-full overflow-hidden border-8 border-white/5">
+            <div className="aspect-square rounded-full overflow-hidden border-8 border-white/10 shadow-2xl">
               <img 
                 src="https://picsum.photos/seed/community/800/800" 
                 alt="Community" 
@@ -169,7 +179,7 @@ export default function Home() {
                 referrerPolicy="no-referrer"
               />
             </div>
-            <div className="absolute -bottom-10 -right-10 bg-[#5A5A40] p-12 rounded-full hidden lg:block">
+            <div className="absolute -bottom-10 -right-10 bg-[#5A5A40] p-12 rounded-full hidden lg:block shadow-xl">
               <span className="text-4xl font-serif italic">Mérida</span>
             </div>
           </div>
@@ -177,7 +187,7 @@ export default function Home() {
           <div>
             <span className="text-xs uppercase tracking-[0.2em] font-bold text-gray-400 mb-6 block">The Experience</span>
             <h2 className="text-5xl md:text-6xl font-serif mb-8 leading-tight">More than just <br /> a place to sleep.</h2>
-            <p className="text-lg text-gray-400 font-light mb-10 leading-relaxed">
+            <p className="text-lg text-gray-300 font-light mb-10 leading-relaxed">
               We build spaces for those who live without borders. Whether you're here for a week or a month, you'll find a community of like-minded creatives and professionals, and a neighborhood that welcomes you as a local.
             </p>
             <ul className="space-y-6 mb-12">
@@ -197,6 +207,30 @@ export default function Home() {
               Join the Community
             </button>
           </div>
+        </div>
+      </section>
+
+      {/* NEW: Neighborhood Spotlight (Full-bleed Background Image) */}
+      <section className="relative h-[600px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://picsum.photos/seed/merida-neighborhood/1920/1080" 
+            alt="Mérida Neighborhood" 
+            className="w-full h-full object-cover"
+            referrerPolicy="no-referrer"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        </div>
+        
+        <div className="relative z-10 text-center text-white max-w-3xl px-6">
+          <span className="text-xs uppercase tracking-[0.3em] font-bold mb-6 block">Explore the City</span>
+          <h2 className="text-5xl md:text-7xl font-serif mb-8 italic">The soul of Yucatán</h2>
+          <p className="text-lg font-light mb-10 opacity-90 leading-relaxed">
+            From the vibrant markets of Santiago to the quiet, tree-lined streets of Itzimná, Mérida is a city of layers. We help you peel them back.
+          </p>
+          <button className="bg-white text-ink px-10 py-4 rounded-full text-xs uppercase tracking-widest font-bold hover:scale-105 transition-transform">
+            View Neighborhood Guide
+          </button>
         </div>
       </section>
     </div>
