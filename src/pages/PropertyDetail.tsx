@@ -48,15 +48,18 @@ export default function PropertyDetail() {
 
             {/* Gallery Grid */}
             <div className="grid grid-cols-2 gap-4 aspect-[16/10]">
-              <div className="col-span-2 md:col-span-1 overflow-hidden rounded-2xl">
-                <img src={property.images[0]} alt={property.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+              <div className="col-span-2 md:col-span-1 overflow-hidden rounded-2xl relative group">
+                <video autoPlay muted loop playsInline className="w-full h-full object-cover">
+                  <source src="https://cdn.coverr.co/videos/preview/720p/coverr-palm-trees-in-the-wind-5215.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
               </div>
               <div className="hidden md:grid grid-rows-2 gap-4">
                 <div className="overflow-hidden rounded-2xl">
-                  <img src={property.images[1] || property.images[0]} alt={property.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                  <img src={property.images[0]} alt={property.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                 </div>
                 <div className="overflow-hidden rounded-2xl relative">
-                  <img src={property.images[2] || property.images[0]} alt={property.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                  <img src={property.images[1] || property.images[0]} alt={property.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                   <button className="absolute inset-0 bg-black/40 flex items-center justify-center text-white text-xs uppercase tracking-widest font-bold">
                     View all photos
                   </button>

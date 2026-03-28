@@ -6,16 +6,19 @@ import { Link } from 'react-router-dom';
 export default function Home() {
   return (
     <div className="bg-[#f5f2ed]">
-      {/* 1) Homepage Hero (Outsite Inspired) */}
+      {/* 1) Homepage Hero (Outsite Inspired with Video) */}
       <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://picsum.photos/seed/merida-hero/1920/1080" 
-            alt="Mérida Lifestyle" 
+          <video 
+            autoPlay 
+            muted 
+            loop 
+            playsInline
             className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
-          <div className="absolute inset-0 bg-black/20" />
+          >
+            <source src="https://cdn.coverr.co/videos/preview/720p/coverr-palm-trees-in-the-wind-5215.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-black/40" />
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20">
@@ -79,6 +82,36 @@ export default function Home() {
                 <p className="text-sm text-gray-500">{item.desc}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* NEW: Lifestyle Moving Pictures (Outsite Inspired) */}
+      <section className="py-24 bg-[#f5f2ed]">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[600px]">
+            <div className="md:col-span-2 relative rounded-3xl overflow-hidden group">
+              <video autoPlay muted loop playsInline className="w-full h-full object-cover">
+                <source src="https://cdn.coverr.co/videos/preview/720p/coverr-a-man-working-on-a-laptop-in-a-cafe-5658.mp4" type="video/mp4" />
+              </video>
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+              <div className="absolute bottom-10 left-10 text-white">
+                <span className="text-[10px] uppercase tracking-[0.2em] font-bold mb-2 block">Work Anywhere</span>
+                <h3 className="text-3xl font-serif">Productivity in Paradise</h3>
+              </div>
+            </div>
+            <div className="grid grid-rows-2 gap-6">
+              <div className="relative rounded-3xl overflow-hidden group">
+                <img src="https://picsum.photos/seed/merida-street/800/600" alt="Mérida Streets" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
+                <div className="absolute inset-0 bg-black/10" />
+              </div>
+              <div className="relative rounded-3xl overflow-hidden group">
+                <video autoPlay muted loop playsInline className="w-full h-full object-cover">
+                  <source src="https://cdn.coverr.co/videos/preview/720p/coverr-coffee-is-poured-into-a-cup-5452.mp4" type="video/mp4" />
+                </video>
+                <div className="absolute inset-0 bg-black/20" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
