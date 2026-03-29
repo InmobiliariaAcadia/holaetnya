@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 export default function Home() {
   return (
     <div className="bg-[#f5f2ed]">
-      {/* 1) Homepage Hero (Outsite Inspired with Video) */}
+      {/* 1) Homepage Hero (Cinematic Video) */}
       <section className="relative h-screen min-h-[700px] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <video 
@@ -14,28 +14,30 @@ export default function Home() {
             muted 
             loop 
             playsInline
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover scale-105"
           >
+            {/* Replace this URL with your hosted video link (e.g., from Cloudinary or Mux) */}
             <source src="https://cdn.coverr.co/videos/preview/720p/coverr-palm-trees-in-the-wind-5215.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full pt-20">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-2xl text-white"
           >
-            <h1 className="text-6xl md:text-8xl font-serif leading-[0.9] mb-8 tracking-tighter">
-              Live & Work <br /> in Mérida
+            <span className="text-[10px] uppercase tracking-[0.4em] font-bold mb-6 block opacity-70">Boutique Remote Work Stays</span>
+            <h1 className="text-6xl md:text-8xl font-serif leading-[0.85] mb-8 tracking-tighter">
+              Live & Work <br /> <span className="italic">in Mérida</span>
             </h1>
-            <p className="text-lg md:text-xl font-light mb-10 opacity-90 leading-relaxed max-w-lg">
-              Boutique apartments for modern nomads. Design-led spaces, fast Wi-Fi, and a community that feels like home.
+            <p className="text-lg md:text-xl font-light mb-10 opacity-80 leading-relaxed max-w-lg">
+              Curated residences for modern nomads. Experience the soul of Yucatán with professional standards.
             </p>
             
-            {/* 2) Search / Booking Bar (Marriott/Placemakr Inspired) */}
+            {/* Search / Booking Bar */}
             <div className="bg-white p-2 rounded-full shadow-2xl flex flex-col md:flex-row items-center max-w-3xl text-ink">
               <div className="flex-1 flex items-center px-6 py-3 border-b md:border-b-0 md:border-r border-gray-100 w-full">
                 <Search size={18} className="text-gray-400 mr-3" />
@@ -66,7 +68,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3) Value Prop Strip (Bob W / Placemakr Inspired) */}
+      {/* 3) Value Prop Strip */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
@@ -86,31 +88,56 @@ export default function Home() {
         </div>
       </section>
 
-      {/* NEW: Lifestyle Moving Pictures (Outsite Inspired) */}
-      <section className="py-24 bg-[#f5f2ed]">
+      {/* NEW: "Mérida in Motion" Lifestyle Section */}
+      <section className="py-32 bg-[#f5f2ed]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[600px]">
-            <div className="md:col-span-2 relative rounded-3xl overflow-hidden group">
-              <video autoPlay muted loop playsInline className="w-full h-full object-cover">
-                <source src="https://cdn.coverr.co/videos/preview/720p/coverr-a-man-working-on-a-laptop-in-a-cafe-5658.mp4" type="video/mp4" />
-              </video>
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-              <div className="absolute bottom-10 left-10 text-white">
-                <span className="text-[10px] uppercase tracking-[0.2em] font-bold mb-2 block">Work Anywhere</span>
-                <h3 className="text-3xl font-serif">Productivity in Paradise</h3>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            <div className="lg:col-span-5">
+              <span className="text-xs uppercase tracking-[0.3em] font-bold text-[#5A5A40] mb-6 block">The Vibe</span>
+              <h2 className="text-5xl md:text-6xl font-serif mb-8 leading-[1.1]">Mérida <br /> <span className="italic">in Motion</span></h2>
+              <p className="text-lg text-gray-600 font-light mb-10 leading-relaxed">
+                Experience the rhythm of the city. From morning coffee in Santa Ana to quiet afternoons in your design-led studio, Etnya is where productivity meets the soul of Yucatán.
+              </p>
+              <div className="flex items-center space-x-6">
+                <button className="bg-[#1a1a1a] text-white px-10 py-4 rounded-full text-xs uppercase tracking-widest font-bold hover:bg-opacity-80 transition-all">
+                  Explore Lifestyle
+                </button>
+                <div className="flex -space-x-3">
+                  {[1,2,3].map(i => (
+                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden">
+                      <img src={`https://picsum.photos/seed/user${i}/100/100`} alt="User" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                    </div>
+                  ))}
+                  <div className="w-10 h-10 rounded-full bg-white border-2 border-white flex items-center justify-center text-[10px] font-bold">
+                    +50
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="grid grid-rows-2 gap-6">
-              <div className="relative rounded-3xl overflow-hidden group">
-                <img src="https://picsum.photos/seed/merida-street/800/600" alt="Mérida Streets" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" referrerPolicy="no-referrer" />
-                <div className="absolute inset-0 bg-black/10" />
-              </div>
-              <div className="relative rounded-3xl overflow-hidden group">
-                <video autoPlay muted loop playsInline className="w-full h-full object-cover">
-                  <source src="https://cdn.coverr.co/videos/preview/720p/coverr-coffee-is-poured-into-a-cup-5452.mp4" type="video/mp4" />
+            
+            <div className="lg:col-span-7 relative">
+              <div className="aspect-[16/10] rounded-[2rem] overflow-hidden shadow-2xl relative group">
+                <video 
+                  autoPlay 
+                  muted 
+                  loop 
+                  playsInline 
+                  className="w-full h-full object-cover"
+                >
+                  {/* Swap this with your Google Drive direct link or hosted URL */}
+                  <source src="https://cdn.coverr.co/videos/preview/720p/coverr-a-man-working-on-a-laptop-in-a-cafe-5658.mp4" type="video/mp4" />
                 </video>
-                <div className="absolute inset-0 bg-black/20" />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                
+                {/* Floating Badge */}
+                <div className="absolute top-8 right-8 bg-white/90 backdrop-blur-md px-6 py-3 rounded-full shadow-xl flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+                  <span className="text-[10px] uppercase tracking-widest font-bold">Live from Mérida</span>
+                </div>
               </div>
+              
+              {/* Decorative Element */}
+              <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[#5A5A40] rounded-full -z-10 opacity-20 blur-3xl" />
             </div>
           </div>
         </div>
